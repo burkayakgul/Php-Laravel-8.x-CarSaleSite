@@ -1,45 +1,157 @@
-<footer id="footer">
+<footer>
+    <!-- BEGIN INFORMATIVE FOOTER -->
+    <div class="footer-inner">
+        <div class="our-features-box wow bounceInUp animated animated">
+            <div class="container">
+                <ul>
+                    <li>
+                        <div class="feature-box">
+                            <div class="icon-truck"><img src="{{asset('assets')}}/images/world-icon.png" alt="Image"></div>
+                            <div class="content">
+                                <h6>World's #1</h6>
+                                <p>Largest Auto portal</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-box">
+                            <div class="icon-support"><img src="{{asset('assets')}}/images/car-sold-icon.png" alt="Image"></div>
+                            <div class="content">
+                                <h6>Car Sold</h6>
+                                <p>Every 4 minute</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-box">
+                            <div class="icon-money"><img src="{{asset('assets')}}/images/tag-icon.png" alt="Image"></div>
+                            <div class="content">
+                                <h6>Offers</h6>
+                                <p>Stay updated pay less</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="last">
+                        <div class="feature-box">
+                            <div class="icon-return"><img src="{{asset('assets')}}/images/compare-icon.png" alt="Image"></div>
+                            <div class="content">
+                                <h6>Compare</h6>
+                                <p>Decode the right car</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="newsletter-row">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Newsletter -->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col1">
+                        <div class="newsletter-wrap">
+                            <h5>Newsletter</h5>
+                            <h4>Get Notified Of any Updates!</h4>
+                            <form action="#" method="post" id="newsletter-validate-detail1">
+                                <div id="container_form_news">
+                                    <div id="container_form_news2">
+                                        <input type="text" name="email" id="newsletter1" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Enter your email address">
+                                        <button type="submit" title="Subscribe" class="button subscribe"><span>Subscribe</span></button>
+                                    </div>
+                                    <!--container_form_news2-->
+                                </div>
+                                <!--container_form_news-->
+                            </form>
+                        </div>
+                        <!--newsletter-wrap-->
+                    </div>
+                </div>
+            </div>
+            <!--footer-column-last-->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 col-lg-4">
+                    <div class="co-info">
+                        <h4>SHOWROOM</h4>
+                        <address>
+                            <div><span>ThemesGround, 789 Main rd, Anytown, <br>
+                CA 12345 USA</span></div>
+                            <div> <span> +1 800 789 0000</span></div>
+                            <div> <span><a href="#">Harrier@themesground.com</a></span></div>
+                            <div> <span>Mon - Fri : 09am to 06pm</span></div>
+                        </address>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-xs-12 col-lg-8">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul class="links">
+                            <li class="first"><a title="How to buy" href="http://themesground.com/blog/">Blog</a></li>
+                            <li><a title="FAQs" href="#">FAQs</a></li>
+                            <li><a title="Payment" href="#">Payment</a></li>
+                            <li><a title="Shipment" href="#">Shipment</a></li>
+                            <li><a title="Where is my order?" href="#">Where is my order?</a></li>
+                            <li class="last"><a title="Return policy" href="#">Return policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Style Advisor</h4>
+                        <ul class="links">
+                            <li class="first"><a title="Your Account" href="#">Your Account</a></li>
+                            <li><a title="Information" href="#">Information</a></li>
+                            <li><a title="Addresses" href="#">Addresses</a></li>
+                            <li><a title="Addresses" href="#">Discount</a></li>
+                            <li><a title="Orders History" href="#">Orders History</a></li>
+                            <li class="last"><a title=" Additional Information" href="#"> Additional Information</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Information</h4>
+                        <ul class="links">
+                            <li class="first"><a title="Site Map" href="#">Site Map</a></li>
+                            <li><a title="Search Terms" href="#">Search Terms</a></li>
+                            <li><a title="Advanced Search" href="#">Advanced Search</a></li>
+                            <li><a title="History" href="#">About Us</a></li>
+                            <li><a title="History" href="#">Contact Us</a></li>
+                            <li><a title="Suppliers" href="#">Suppliers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--col-sm-12 col-xs-12 col-lg-8-->
+                <!--col-xs-12 col-lg-4-->
+            </div>
+            <!--row-->
+
+        </div>
+
+        <!--container-->
+    </div>
+    <!--footer-inner-->
 
     <div class="footer-top">
-
         <div class="container">
-
-            <div class="row  justify-content-center">
-                <div class="col-lg-6">
-                    <h3>eNno</h3>
-                    <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="social">
+                        <ul>
+                            <li class="fb"><a href="#"></a></li>
+                            <li class="tw"><a href="#"></a></li>
+                            <li class="googleplus"><a href="#"></a></li>
+                            <li class="rss"><a href="#"></a></li>
+                            <li class="pintrest"><a href="#"></a></li>
+                            <li class="linkedin"><a href="#"></a></li>
+                            <li class="youtube"><a href="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12 coppyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="payment-accept"> <img src="{{asset('assets')}}/images/payment-1.png" alt=""> <img src="{{asset('assets')}}/images/payment-2.png" alt=""> <img src="{{asset('assets')}}/images/payment-3.png" alt=""> <img src="{{asset('assets')}}/images/payment-4.png" alt=""> </div>
                 </div>
             </div>
-
-            <div class="row footer-newsletter justify-content-center">
-                <div class="col-lg-6">
-                    <form action="" method="post">
-                        <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
-                    </form>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-
         </div>
     </div>
-
-    <div class="container footer-bottom clearfix">
-        <div class="copyright">
-            &copy; Copyright <strong><span>eNno</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/enno-free-simple-bootstrap-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
-</footer><!-- End Footer -->
+    <!-- BEGIN SIMPLE FOOTER -->
+</footer>

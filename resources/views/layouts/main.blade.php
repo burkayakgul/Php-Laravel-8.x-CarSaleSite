@@ -1,58 +1,146 @@
-<html>
 <html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Harrier Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="fashion, store, E-commerce">
+    <meta name="robots" content="*">
+    <link rel="icon" href="#" type="image/x-icon">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
 
-    <title>eNno Bootstrap Template - Index</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="{{asset('assets')}}/img/favicon.png" rel="icon">
-    <link href="{{asset('assets')}}/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="{{asset('assets')}}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="{{asset('assets')}}/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: eNno - v4.6.0
-    * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+    <!-- CSS Style -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/font-awesome.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/revslider.css" >
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/jquery.mobile-menu.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/stylesheet/responsive.css" media="all">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Condensed:300,400,500,600,700,800" rel="stylesheet">
 </head>
 <body>
     @include('home._header')
-    <p>Burası main page</p>
-
-<div class="container">
+    @if(Route::getCurrentRoute()->uri() != '/home')
+        @include('home._title')
+        
+    @endif
     @yield('content')
-</div>
 @include('home._footer')
-<script src="{{ mix('js/app.js') }}/"></script>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="{{ mix('js/app.js') }}/"></script>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="{{asset('assets')}}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets')}}/js/bootstrap-slider.min.js"></script>
+    <script src="{{asset('assets')}}/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/parallax.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/revslider.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/common.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="{{asset('assets')}}/js/jquery.mobile-menu.min.js"></script>
+    <script src="{{asset('assets')}}/js/countdown.js"></script>
 
-    <!-- Vendor JS Files -->
-    <script src="{{asset('assets')}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('assets')}}/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="{{asset('assets')}}/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="{{asset('assets')}}/vendor/php-email-form/validate.js"></script>
-    <script src="{{asset('assets')}}/vendor/purecounter/purecounter.js"></script>
-    <script src="{{asset('assets')}}/vendor/swiper/swiper-bundle.min.js"></script>
+    @yield('javascript')
 
-    <!-- Template Main JS File -->
-    <script src="{{asset('assets')}}/js/main.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('#rev_slider_4').show().revolution({
+                dottedOverlay: 'none',
+                delay: 5000,
+                startwidth: 1170,
+                startheight:650,
+
+                hideThumbs: 200,
+                thumbWidth: 200,
+                thumbHeight: 50,
+                thumbAmount: 2,
+
+                navigationType: 'thumb',
+                navigationArrows: 'solo',
+                navigationStyle: 'round',
+
+                touchenabled: 'on',
+                onHoverStop: 'on',
+
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+
+                spinner: 'spinner0',
+                keyboardNavigation: 'off',
+
+                navigationHAlign: 'center',
+                navigationVAlign: 'bottom',
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: 'left',
+                soloArrowLeftValign: 'center',
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: 'right',
+                soloArrowRightValign: 'center',
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: 'on',
+                fullScreen: 'off',
+
+                stopLoop: 'off',
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: 'off',
+
+                autoHeight: 'off',
+                forceFullWidth: 'on',
+                fullScreenAlignForce: 'off',
+                minFullScreenHeight: 0,
+                hideNavDelayOnMobile: 1500,
+
+                hideThumbsOnMobile: 'off',
+                hideBulletsOnMobile: 'off',
+                hideArrowsOnMobile: 'off',
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ''
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function HideMe()
+        {
+            jQuery('.popup1').hide();
+            jQuery('#fade').hide();
+        }
+    </script>
+    <script>
+        var dthen1 = new Date("12/25/17 11:59:00 PM");
+        start = "08/04/15 03:02:11 AM";
+        start_date = Date.parse(start);
+        var dnow1 = new Date(start_date);
+        if (CountStepper > 0)
+            ddiff = new Date((dnow1) - (dthen1));
+        else
+            ddiff = new Date((dthen1) - (dnow1));
+        gsecs1 = Math.floor(ddiff.valueOf() / 1000);
+
+        var iid1 = "countbox_1";
+        CountBack_slider(gsecs1, "countbox_1", 1);
+    </script>
 </body>
 </html>
