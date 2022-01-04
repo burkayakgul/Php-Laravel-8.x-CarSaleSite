@@ -14,17 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['middleware'=>['user.auth']],function (){
+    Route::get('/login', [HomeController::class, 'login'])->name('login');
+    Route::get('/register', [HomeController::class, 'register'])->name('register');
+    Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard/messages', [\App\Http\Controllers\UserController::class, 'messages'])->name('messages');
+
+    Route::get('/advertise', [\App\Http\Controllers\UserController::class, 'advertise'])->name('advertise');
+    Route::post('/add_advertise', [\App\Http\Controllers\UserController::class, 'add_advertise'])->name('add_advertise');
+    Route::post('/sendMessage', [\App\Http\Controllers\UserController::class, 'sendMessage'])->name('sendMessage');
+    Route::post('/favorites', [\App\Http\Controllers\UserController::class, 'favorites'])->name('favorites');
+    Route::post('/addcomment', [\App\Http\Controllers\UserController::class, 'addcomment'])->name('addcomment');
+
+});
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/login', [HomeController::class, 'login'])->name('login');
-Route::get('/register', [HomeController::class, 'register'])->name('register');
+
+Route::get('/cardetail/{id}', [\App\Http\Controllers\CarController::class, 'cardetail'])->name('cardetail');
+Route::get('/carlist', [\App\Http\Controllers\CarController::class, 'carlist'])->name('carlist');
+
 Route::post('/logincontroller',[HomeController::class,'logincontroller'])->name('logincontroller');
 Route::post('/registercontrol',[HomeController::class,'registercontrol'])->name('registercontrol');
+Route::get('/logout',[HomeController::class,'logout'])->name("logout");
 
 Route::redirect('/', '/home');
 
 Route::get('/otomobil', [HomeController::class, 'cars']);
 
 Route::post('/ajaxdistricts',[HomeController::class,'getdistricts'])->name('ajaxdistricts');
+Route::post('/ajaxbrand',[HomeController::class,'getmodels'])->name('ajaxbrand');
+Route::post('/ajaxmodel',[HomeController::class,'getequipment'])->name('ajaxmodel');
+Route::post('/searchbar', [\App\Http\Controllers\HomeController::class, 'searchbar'])->name('searchbar');
 
 
 

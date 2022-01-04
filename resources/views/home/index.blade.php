@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('javascript')
+    <script src="{{ asset('assets') }}/js/search.js"></script>
+@endsection
+
 @section('content')
 
     <div class="content">
@@ -57,8 +61,9 @@
 
         <div class="section-filter">
             <div class="b-filter__inner bg-grey container">
-                <h2>Find your right car</h2>
+                <h2>Size özel aracı bulun</h2>
                 <form class="b-filter">
+                    @csrf
                     <div class="btn-group bootstrap-select">
                         <select class="selectpicker" data-width="100%" tabindex="-98">
                             <option>Select Make</option>
@@ -68,19 +73,16 @@
                         </select>
                     </div>
                     <div class="btn-group bootstrap-select">
-                        <select class="selectpicker" data-width="100%" tabindex="-98">
-                            <option>Select Car Status</option>
-                            <option>Status 1</option>
-                            <option>Status 2</option>
-                            <option>Status 3</option>
+                        <select class="selectpicker" id="brand" name="brand_id" data-width="100%" tabindex="-98">
+                            <option value="0">Marka Seçiniz</option>
+                            @foreach($brand as $br)
+                                <option value="{{$br->id}}">{{$br->name}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="btn-group bootstrap-select">
-                        <select class="selectpicker" data-width="100%" tabindex="-98">
-                            <option>Select Model</option>
-                            <option>Model 1</option>
-                            <option>Model 2</option>
-                            <option>Model 3</option>
+                        <select class="selectpicker" id="model" data-width="100%" tabindex="-98">
+                            <option value="0">Model Seçiniz</option>
                         </select>
                     </div>
                     <div class="btn-group bootstrap-select">
@@ -101,8 +103,8 @@
                     </div>
                     <div class="ui-filter-slider">
                         <div class="sidebar-widget-body m-t-10">
-                            <div class="price-range-holder"> <span class="min-max"> <span class="pull-left">$200.00</span> <span class="pull-right">$800.00</span> </span>
-                                <input type="text" class="price-slider" value="" style="display:block" >
+                            <div class="price-range-holder"> <span class="min-max"> <span class="pull-left">$100.00</span> <span class="pull-right">$900.00</span> </span>
+                                <input type="text" class="price-slider" min="100000" max="900000" value="500" style="display:block" >
                             </div>
                             <!-- /.price-range-holder -->
                         </div>
@@ -158,7 +160,7 @@
                                 </div>
                                 <div class="item-info">
                                     <div class="info-inner">
-                                        <div class="item-title"><a href="accessories-detail.html" title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a> </div>
+                                        <div class="item-title"><a href="{{route('cardetail',1)}}" title="Retis lapen casen">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a> </div>
                                         <div class="item-content">
                                             <div class="rating">
                                                 <div class="ratings">
@@ -434,4 +436,4 @@
         </div>
     </div>
 
-  @endsection
+@endsection

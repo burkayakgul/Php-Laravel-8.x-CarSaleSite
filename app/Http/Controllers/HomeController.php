@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Exception\DateTimeException;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
     public function Index()
     {
-        return view("home/index");
+        $brand = DB::table('brand')->get();
+        return view("home/index",['brand'=>$brand]);
     }
 
 
@@ -39,11 +43,19 @@ class HomeController extends Controller
             return back()->with('fail','Email adresiniz veya şifreniz hatalı!');
         }else{
             if($request->password == $userinfo->password){
-                $request->session()->put('UserSession',$userinfo->id);
+                $request->session()->put('UserSession',['user_id'=>$userinfo->id,'user_role'=>$userinfo->authority_id]);
                 return redirect(route('home'));
             }else{
                 return back()->with('fail','Email adresiniz veya şifreniz hatalı!');
             }
+        }
+    }
+
+    public function logout()
+    {
+        if(session()->has('UserSession')){
+            session()->pull('UserSession');
+            return redirect('/home');
         }
     }
 
@@ -82,6 +94,32 @@ class HomeController extends Controller
         $user->save();
 
         return redirect()->route('login')->with('success','Başarıyla kayıt oldunuz, şimdi giriş yapabilirsiniz.');
+    }
+
+    public function getmodels(Request $request)
+    {
+        if($request->input('id')!=0)
+        {
+            $model = DB::table('car_models')->where('brand_id','=',$request->input('id'))->get();
+            return response()->json($model, 200);
+        }
+        else
+        {
+            return response()->json(0, 404);
+        }
+    }
+
+    public function getequipment(Request $request)
+    {
+        $equipment = DB::table('equipment')->where('model_id','=',$request->input('id'))->get();
+        return response()->json($equipment, 200);
+    }
+
+
+    public function searchbar(Request $request)
+    {
+        $search = DB::table('car')->where('title','like','%' . $request->input('search') . '%')->get();
+        return response()->json($search,200);
     }
 
 }

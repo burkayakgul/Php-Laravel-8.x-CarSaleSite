@@ -22,33 +22,15 @@
                             <div class="fl-links">
                                 <div class="no-js"> <a title="" class="clicker"></a>
                                     <div class="fl-nav-links">
-                                        <div class="language-currency">
-                                            <div class="fl-language">
-                                                <h3>Language</h3>
-                                                <ul class="lang">
-                                                    <li><a href="#"> <img src="{{asset('assets')}}/images/english.png" alt="English"> <span>English</span> </a></li>
-                                                    <li><a href="#"> <img src="{{asset('assets')}}/images/francais.png" alt="French"> <span>French</span> </a></li>
-                                                    <li><a href="#"> <img src="{{asset('assets')}}/images/german.png" alt="German"> <span>German</span> </a></li>
-                                                </ul>
-                                            </div>
-                                            <!--fl-language-->
-                                            <!-- END For version 1,2,3,4,6 -->
-                                            <!-- For version 1,2,3,4,6 -->
-                                            <div class="fl-currency">
-                                                <h3>Currency</h3>
-                                                <ul class="currencies_list">
-                                                    <li><a href="#" title="EGP"> <strong>£</strong> Pound Sterling</a></li>
-                                                    <li><a href="#" title="EUR"> <strong>€</strong> Euro</a></li>
-                                                    <li><a href="#" title="USD"> <strong>$</strong> US Dollar</a></li>
-                                                </ul>
-                                            </div>
-                                            <!--fl-currency-->
-                                            <!-- END For version 1,2,3,4,6 -->
-                                        </div>
-                                        <h3>My Acount</h3>
+                                        <h3>Hesabım</h3>
                                         <ul class="links">
-                                            <li><a href="login.html" title="My Account">Login</a></li>
-                                            <li><a href="login.html" title="Wishlist">Register</a></li>
+                                            @if(Session::has('UserSession'))
+                                                <li><a href="{{route('dashboard')}}" title="My Account"><i class="far fa-user-circle"></i> Profilim</a></li>
+                                                <li><a href="{{route('logout')}}" title="My Account"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a></li>
+                                            @else
+                                            <li><a href="{{route('login')}}" title="My Account"><i class="fas fa-sign-in-alt"></i> Giriş Yap</a></li>
+                                            <li><a href="{{route('register')}}" title="Wishlist"><i class="far fa-save"></i> Kayıt Ol</a></li>
+                                                @endif
                                         </ul>
                                     </div>
                                 </div>
@@ -97,12 +79,16 @@
                             <div class="collapse navbar-collapse">
                                 <form class="navbar-form" role="search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search">
+                                        <input type="text" id="search_bar" class="form-control" placeholder="Search">
                                         <span class="input-group-btn">
+
                       <button type="submit" class="search-btn"> <span class="glyphicon glyphicon-search"> <span class="sr-only">Search</span> </span> </button>
                       </span> </div>
                                 </form>
+                                <ul id="search_list">
+                                </ul>
                             </div>
+
                             <!--links-->
                         </div>
                         <div class="fl-nav-menu">
