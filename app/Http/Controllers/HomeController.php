@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Models\Category;
 use App\Models\City;
+use App\Models\Faq;
+use App\Models\Setting;
+use App\Models\UserQuestion;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\User;
@@ -13,10 +18,21 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+
+    public function __construct()
+    {
+        $setting = Setting::all();
+
+
+
+    }
+
     public function Index()
     {
         $brand = DB::table('brand')->get();
-        return view("home/index",['brand'=>$brand]);
+        $cars = Car::all();
+        $categories = Category::all();
+        return view("home/index",['brand'=>$brand,'cars'=>$cars,'categories'=>$categories]);
     }
 
 
@@ -43,7 +59,7 @@ class HomeController extends Controller
             return back()->with('fail','Email adresiniz veya şifreniz hatalı!');
         }else{
             if($request->password == $userinfo->password){
-                $request->session()->put('UserSession',['user_id'=>$userinfo->id,'user_role'=>$userinfo->authority_id]);
+                $request->session()->put('UserSession',['user_id'=>$userinfo->id,'is_admin'=>$userinfo->is_admin]);
                 return redirect(route('home'));
             }else{
                 return back()->with('fail','Email adresiniz veya şifreniz hatalı!');
@@ -95,6 +111,43 @@ class HomeController extends Controller
 
         return redirect()->route('login')->with('success','Başarıyla kayıt oldunuz, şimdi giriş yapabilirsiniz.');
     }
+
+    public function contact()
+    {
+        $contact = Setting::where('status','=',1)->first()->contact;
+
+        return view('home/contact',['contact'=>$contact]);
+    }
+
+    public function contactmessage(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => ['required','min:3','max:60'],
+            'email' => ['required', 'email'],
+            'message' => ['required','min:3','max:500']
+        ]);
+
+        $user_question = new UserQuestion();
+        $user_question->name = $request->input('name');
+        $user_question->email = $request->input('email');
+        $user_question->message = $request->input('message');
+        $user_question->phone = $request->input('phone') == null ? : $request->input('phone');
+        $user_question->save();
+        return redirect()->route('home')->with('success','Değerli mesajınız için teşekkür ederiz...');
+    }
+
+    public function faqs()
+    {
+        $faqs = Faq::all();
+        return view('home.faqs',['faqs'=>$faqs]);
+    }
+
+    public function aboutus()
+    {
+        $aboutus = Setting::first()->aboutus;
+        return view('home.aboutus',['aboutus'=>$aboutus]);
+    }
+
 
     public function getmodels(Request $request)
     {
